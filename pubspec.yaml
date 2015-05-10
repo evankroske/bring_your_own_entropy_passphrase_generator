@@ -1,3 +1,9 @@
 name: passphrase_gen
 dependencies:
   browser: any
+transformers:
+- $dart2js:
+    checked: true
+    suppressHints: false
+    suppressWarnings: false
+    terse: false
