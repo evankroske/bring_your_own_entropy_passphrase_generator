@@ -5,11 +5,10 @@ Future<List<String>> futureWordListFromFutureDoc(Future<String> futureDoc) {
   return futureDoc
     .then((String doc) {
       var lines = doc.split('\n');
-      var wordList =
+      return new List.from(
           lines
             .getRange(2, lines.length - 12)
-            .map((String line) => line.substring(6));
-      return wordList;
+            .map((String line) => line.substring(6)));
     });
 }
 
@@ -18,7 +17,13 @@ void main() {
   futureWordListFromFutureDoc(futureDoc)
     .then((List<String> wordList) {
       var button = querySelector('#btn_add_to_passphrase');
+      var fieldRandomNumber = querySelector('#field_random_number');
+      var passphrase = [];
       button.attributes.remove('disabled');
-      print(wordList);
+      button.onClick.forEach((MouseEvent e) {
+        var randonNumber = int.parse(fieldRandomNumber.value);
+        passphrase.add(wordList[randonNumber % wordList.length]);
+        print(passphrase.join(' '));
+      });
     });
 }
