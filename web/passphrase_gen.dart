@@ -19,11 +19,13 @@ void main() {
       var button = querySelector('#btn_add_to_passphrase');
       var fieldRandomNumber = querySelector('#field_random_number');
       var passphrase = [];
+      var fieldPassphrase = querySelector('#field_passphrase');
       button.attributes.remove('disabled');
       button.onClick.forEach((MouseEvent e) {
         var randonNumber = int.parse(fieldRandomNumber.value);
         passphrase.add(wordList[randonNumber % wordList.length]);
-        print(passphrase.join(' '));
+        fieldPassphrase.value = passphrase.join(' ');
+        fieldRandomNumber.value = '';
       });
     });
 }
