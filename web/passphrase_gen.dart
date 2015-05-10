@@ -1,17 +1,22 @@
+import 'dart:async';
 import 'dart:html';
 
-void main() {
-  var path = '/diceware.wordlist.asc';
-  HttpRequest.getString(path)
-    .then((String contents) {
-      var lines = contents.split('\n');
+Future<List<String>> futureWordListFromFutureDoc(Future<String> futureDoc) {
+  return futureDoc
+    .then((String doc) {
+      var lines = doc.split('\n');
       var wordList =
-          lines.getRange(2, lines.length - 12).map((String line) {
-            return line.substring(6);
-          });
+          lines
+            .getRange(2, lines.length - 12)
+            .map((String line) => line.substring(6));
+      return wordList;
+    });
+}
+
+void main() {
+  var futureDoc = HttpRequest.getString('/diceware.wordlist.asc');
+  futureWordListFromFutureDoc(futureDoc)
+    .then((List<String> wordList) {
       print(wordList);
-    })
-    .catchError((Error error) {
-      print(error.toString());
     });
 }

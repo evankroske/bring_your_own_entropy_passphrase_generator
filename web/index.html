@@ -5,6 +5,16 @@
     <title>Passphrase Generator: Convert Entropy into a Passphrase in Seconds</title>
   </head>
   <body>
+    <h1>Passphrase Generator</h1>
+    <form>
+      <ol>
+        <li>Choose a number between 0 and 7775 at random.
+        <li>Enter the number here: <input type="number">.
+        <li><button type="button" disabled>Click here to add the corresponding word to your passphrase.</button>
+        <li>If your passphrase below has less than five words, continue from step 1.
+        <li>Copy your password from here: <input type="text">.
+      </ol>
+    </form>
     <script type="application/dart" src="passphrase_gen.dart"></script>
     <script src="packages/browser/dart.js"></script>
   </body>
