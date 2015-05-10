@@ -17,6 +17,8 @@ void main() {
   var futureDoc = HttpRequest.getString('/diceware.wordlist.asc');
   futureWordListFromFutureDoc(futureDoc)
     .then((List<String> wordList) {
+      var button = querySelector('#btn_add_to_passphrase');
+      button.attributes.remove('disabled');
       print(wordList);
     });
 }
