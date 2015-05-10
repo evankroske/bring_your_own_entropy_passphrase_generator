@@ -26,6 +26,7 @@ void main() {
         passphrase.add(wordList[randonNumber % wordList.length]);
         fieldPassphrase.value = passphrase.join(' ');
         fieldRandomNumber.value = '';
+        fieldRandomNumber.focus();
       });
     });
 }
