@@ -1,0 +1,10 @@
+URL: http://world.std.com/~reinhold/diceware.wordlist.asc
+Version: 2015/05/06
+License: Creative Commons Attribution 3.0 Unported
+License File: LICENSE
+
+Description:
+A list of 7776 short words from which to construct passphrases.
+
+Local Modifications:
+Added LICENSE file containing CC BY 3.0. The following page specifies the license of the word list: http://world.std.com/~reinhold/diceware.html .
