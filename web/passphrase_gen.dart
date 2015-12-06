@@ -29,7 +29,7 @@ Future<List<String>> futureWordListFromFutureDoc(Future<String> futureDoc) {
 }
 
 void main() {
-  var futureDoc = HttpRequest.getString('/diceware.wordlist.asc');
+  var futureDoc = HttpRequest.getString('diceware.wordlist.asc');
   futureWordListFromFutureDoc(futureDoc)
     .then((List<String> wordList) {
       ButtonElement button = querySelector('#btn_add_to_passphrase');
